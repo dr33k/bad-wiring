@@ -1,0 +1,27 @@
+ private bool isjumping = false;
+  private IEnumerator Delay(int seconds) { yield return new WaitForSeconds(seconds); }
+    private IEnumerator BallJump(){
+        //Turn off Gravity
+        ball.gravityScale = 0;
+
+        //Set isjumping to true
+        isjumping = true;
+        Debug.Log("Ball Jump Started");
+        
+        //Wait for 3 seconds
+        yield return StartCoroutine(Delay(3));
+        
+        //Set isjumping to false
+        Debug.Log("Ball Jump Stopped");
+        isjumping = false;
+
+    }
+
+
+ /* if(isjumping){  
+                //Lock y
+                ball.position.Set(ball.position.x,0);
+                //ball.AddForce(Vector2.up);
+                Debug.Log("Jumping");
+            }
+            */
